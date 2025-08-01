@@ -1,0 +1,67 @@
+#!/bin/bash
+
+# Source and destination directories
+SOURCE_DIR="$HOME/win2xcur-script/cursor-input"
+DEST_BASE_DIR="$HOME/win2xcur-script/input"
+
+# Use jq to safely encode the directory names into a JSON array
+DIRS_JSON=$(find "$DEST_BASE_DIR" -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | jq -R . | jq -s .)
+
+# Define manual keyword-to-directory overrides
+declare -A MANUAL_MAP=(
+  [precision]="Cross"
+  [pointer]="Default"
+  [normal]="Default"
+  [diagonal1]="Dgn1"
+  [Dgn1]="Dgn1"
+  [diagonal2]="Dgn2"
+  [Dgn2]="Dgn2"
+  [pin]=".trash"
+  [people]=".trash"
+  [location]=".trash"
+)
+
+# Loop through all .cur and .ani files
+for filepath in "$SOURCE_DIR"/*.{cur,ani}; do
+    [ -e "$filepath" ] || continue  # skip if no matching files
+
+    filename=$(basename "$filepath")
+    name="${filename%.*}"
+    extension="${filename##*.}"
+
+    # Lowercased, cleaned name for mapping
+    lower_name=$(echo "$name" | tr '[:upper:]' '[:lower:]' | tr -cd '[:alnum:]')
+
+    # Check for manual override with prioritized (longest match first)
+    match=""
+    for key in $(printf '%s\n' "${!MANUAL_MAP[@]}" | awk '{ print length, $0 }' | sort -rn | cut -d' ' -f2-); do
+        if [[ "$lower_name" == *"${key,,}"* ]]; then  # case-insensitive match
+            match="${MANUAL_MAP[$key]}"
+            break
+        fi
+    done
+
+    # If no manual override match, fall back to fuzzy match
+    if [ -z "$match" ]; then
+        match=$(python3 -c "
+import difflib, re, json
+dirs = json.loads('''$DIRS_JSON''')
+filename = \"$name\"
+clean_name = re.sub(r'[^a-zA-Z]', '', filename).lower()
+choices = [d.lower() for d in dirs]
+best = difflib.get_close_matches(clean_name, choices, n=1, cutoff=0.5)
+if best:
+    index = choices.index(best[0])
+    print(dirs[index])
+")
+    fi
+
+    # Move file if a match was found
+    if [ -n "$match" ]; then
+        dest_dir="$DEST_BASE_DIR/$match"
+        echo "Moving '$filename' → '$match/'"
+        mv "$filepath" "$dest_dir/"
+    else
+        echo "⚠️ No good match for '$filename'"
+    fi
+done

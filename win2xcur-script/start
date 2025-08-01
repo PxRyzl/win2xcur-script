@@ -1,0 +1,70 @@
+#!/bin/bash
+
+# Set paths
+project_dir="$HOME/win2xcur-script"
+log_dir="$project_dir/.logs"
+timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
+log_file="$log_dir/run_$timestamp.log"
+
+# Create log directory if it doesn't exist
+mkdir -p "$log_dir"
+
+# Redirect all output (stdout and stderr) to the log file
+exec > >(tee -a "$log_file") 2>&1
+
+echo "🕒 Script started at $(date)"
+echo "📁 Project directory: $project_dir"
+echo "📝 Logging to: $log_file"
+
+# Change to the project directory
+if ! cd "$project_dir"; then
+  echo "❌ Failed to enter $project_dir"
+  echo "🛑 Critical failure: cannot continue."
+  exit 1
+fi
+
+# Track status of each step
+sorting_success=true
+convert_success=true
+detail_success=true
+
+# Run the sorting script
+echo "🔄 Running sorting..."
+if ./sorting; then
+  echo "✅ Sorting complete."
+else
+  echo "❌ sorting failed."
+  sorting_success=false
+fi
+
+# Run the convert script
+echo "🔧 Running convert..."
+if ./convert; then
+  echo "✅ Conversion complete."
+else
+  echo "❌ convert failed."
+  convert_success=false
+fi
+
+# Run the detail script
+echo "📋 Running detail..."
+if ./detail; then
+  echo "✅ Detail script completed."
+else
+  echo "❌ detail script failed."
+  detail_success=false
+fi
+
+echo "🕒 Script ended at $(date)"
+
+# Final summary
+echo "📦 Summary:"
+$sorting_success   && echo "  ✔ Sorting succeeded."   || echo "  ❌ Sorting failed."
+$convert_success   && echo "  ✔ Convert succeeded."   || echo "  ❌ Convert failed."
+$detail_success    && echo "  ✔ Detail succeeded."    || echo "  ❌ Detail failed."
+
+if $sorting_success && $convert_success && $detail_success; then
+  echo "🎉 All steps completed successfully!"
+else
+  echo "⚠️ Some steps failed. Check the log at $log_file for details."
+fi
