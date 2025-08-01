@@ -1,0 +1,22 @@
+#! /bin/bash
+
+# Create important directory
+mkdir  ~/win2xcur-script/converting
+mkdir  ~/win2xcur-script/process
+mkdir  ~/win2xcur-script/input
+
+base_cur=~/win2xcur-script/input
+indir=(
+  Alternate Busy Cross Default Dgn1
+  Dgn2 Hand Help Horizontal Link
+  Move Text Unavailable Vertical Work
+)
+for fil in "${indir[@]}"; do
+  mkdir -p "$base_cur/${fil}"
+done
+
+# Create important input directory
+mkdir ~/win2xcur-script/cursor-input
+
+# Remove this file once done
+rm ~/win2xcur-script/create-directory-first
