@@ -125,4 +125,4 @@ for dir in "${input_dirs[@]}"; do
 done
 
 rm -rf $HOME/win2xcur-script/.converting/* $HOME/win2xcur-script/.process/*
-rm $HOME/win2xcur-script/cursor-input/*
+rm $HOME/win2xcur-script/autosort/*
