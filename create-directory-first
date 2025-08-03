@@ -1,11 +1,11 @@
 #! /bin/bash
 
 # Create important directory
-mkdir  ~/win2xcur-script/converting
-mkdir  ~/win2xcur-script/process
-mkdir  ~/win2xcur-script/input
+mkdir  $HOME/win2xcur-script/.converting
+mkdir  $HOME/win2xcur-script/.process
+mkdir  $HOME/win2xcur-script/input
 
-base_cur=~/win2xcur-script/input
+base_cur=$HOME/win2xcur-script/input
 indir=(
   Alternate Busy Cross Default Dgn1
   Dgn2 Hand Help Horizontal Link
@@ -16,7 +16,7 @@ for fil in "${indir[@]}"; do
 done
 
 # Create important input directory
-mkdir ~/win2xcur-script/cursor-input
+mkdir $HOME/win2xcur-script/autosort
 
 # Remove this file once done
-rm ~/win2xcur-script/create-directory-first
+rm $HOME/win2xcur-script/create-directory-first
