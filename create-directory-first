@@ -23,7 +23,7 @@ chmod_bsh=$HOME/win2xcur-script
 scrp=(
 	convert detail sorting start
 )
-for srp in "${scrp[@]"; do
+for srp in "${scrp[@]}"; do
 	chmod +x "chmod_bsh/${srp}"
 done
 
