@@ -24,7 +24,7 @@ scrp=(
 	convert detail sorting start
 )
 for srp in "${scrp[@]}"; do
-	chmod +x "chmod_bsh/${srp}"
+	chmod +x "$chmod_bsh/${srp}"
 done
 
 # Remove this file once done
