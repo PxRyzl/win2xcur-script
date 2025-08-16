@@ -2,5 +2,8 @@ A Simple bash script to convert windows cursor such as .cur and .ani into xcurso
 
 AI WARNING: These script are made with the help of AI so it might have some problem that I can't fix by myself. But these scripts have been tested and there doesn't seem to be any error whatsoever.
 
+Youtube Tutorial on how to use the script:
+https://youtu.be/tatl1YSWwkM
+
 Feel free to download some of the cursors that has been converted on my pling account
 https://www.pling.com/u/pxryzl/
