@@ -23,8 +23,8 @@ Feel free to download some of the cursors that has been converted on my [pling](
 
 Install these dependencies
 
-```txt
-git yad/zenity 
+```sh
+git yad # or use zenity 
 ```
 
 Cloning
@@ -51,6 +51,7 @@ Example of windows cursor name
   ```
 Cursor file such as `Location/Pin` or `Person/People` won't be needed
 
+#### Steps
 1. Copy all the Windows cursor into ~/win2xcur-script/autosort/
 2. Run the 'start' script
 3. It will create test-cursor directory containing the converted cursor
@@ -64,6 +65,7 @@ This involve manually putting the each cursors file into their corresponding dir
 
 <img width="1689" height="510" alt="20250918-191139" src="https://github.com/user-attachments/assets/1a25f37e-3175-4ff1-85cc-ffa2b4a782c8" />
 
+#### Steps
 1. Copy all the Windows cursor into ~/win2xcur-script/input into their corresponding directory
 2. Run the 'start' script
 3. It will create test-cursor directory containing the converted cursor
