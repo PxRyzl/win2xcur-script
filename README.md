@@ -13,7 +13,7 @@ Feel free to download some of the cursors that has been converted on my [pling](
 [Win2xcur Github](https://github.com/quantum5/win2xcur)
  
 
-> [!IMPORTANT]
+> [!NOTE]
 > **These script are made with the help of AI so it might have some problem that I can't fix by myself. But these scripts have been tested and there doesn't seem to be any error.**
 
 
@@ -42,7 +42,7 @@ git clone https://github.com/PxRyzl/win2xcur-script
 </div>
 
 ### Automatic Sort
-> [!IMPORTANT]
+> [!WARNING]
 > **This will automatically sort the windows cursor into proper directory but the script sort the cursor based on the file name so make sure it is the same or close to it**
 
 Example of windows cursor name
@@ -60,8 +60,8 @@ Cursor file such as `Location/Pin` or `Person/People` won't be needed
 6. Set and apply the cursors in system settings
 
 ### Manual Sort
-
-This involve manually putting the each cursors file into their corresponding directory but other than that it's basically have the same steps as automatic sort.
+> [!NOTE]
+>This involve manually putting the each cursors file into their corresponding directory but other than that it's basically have the same steps as automatic sort.
 
 <img width="1689" height="510" alt="20250918-191139" src="https://github.com/user-attachments/assets/1a25f37e-3175-4ff1-85cc-ffa2b4a782c8" />
 
@@ -76,19 +76,19 @@ This involve manually putting the each cursors file into their corresponding dir
 ## Issues
 
 ### .cur file didn't get converted
-Sometimes there would be an issue where the cur file didn't get converted and it's usually because the .cur file isnt really a real .cur and it's actually other file type (e.g `.png,.jpg,.ico`)
+Sometimes there would be an issue where .cur file wouldn't get converted and it's usually because the file is another type of file (e.g `.png,.jpg,.ico`) that has been renamed to .cur
 
-To check whether or not the .cur file is really a real .cur use the file command
+To check the .cur file use the file command
 ```sh
-file Alternate.cur
+file Example.cur
 ```
-A real .cur file would show this
+A .cur would give out this message
 ```sh
-Alternate.cur: MS Windows cursor resource - 1 icon, 32x32, hotspot @16x4
+Example.cur: MS Windows cursor resource - 1 icon, 32x32, hotspot @16x4
 ```
-Meanwhile a .ico file would show this
+Meanwhile other file such as .ico would show this instead
 ```sh
-Alternate.cur: MS Windows icon resource - 1 icon, -128x-128, 62 planes, 22 bits/pixel
+Example.cur: MS Windows icon resource - 1 icon, -128x-128, 62 planes, 22 bits/pixel
 ```
 
 
