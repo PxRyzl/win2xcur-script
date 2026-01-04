@@ -75,6 +75,10 @@ Cursor file such as `Location/Pin` or `Person/People` won't be needed
 
 ## Issues
 
+### Using Fish instead of Bash
+Fish user may have problem using the script so it's adviced to use bash instead.
+(You may need to delete and clone the script again)
+
 ### .cur file didn't get converted
 Sometimes there would be an issue where .cur file wouldn't get converted and it's usually because the file is another type of file (e.g `.png,.jpg,.ico`) that has been renamed to .cur
 
