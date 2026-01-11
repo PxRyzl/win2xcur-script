@@ -6,11 +6,11 @@ A Simple bash script to convert windows cursor such as .cur and .ani into xcurso
 
 </div>
 
-[Youtube Tutorial on how to use the script](https://youtu.be/tatl1YSWwkM)
+[Youtube](https://youtu.be/tatl1YSWwkM) Tutorial on how to use the script.
 
 Feel free to download some of the cursors that has been converted on my [pling](https://www.pling.com/u/pxryzl/) account
 
-[Win2xcur Github](https://github.com/quantum5/win2xcur)
+Win2xcur creator [Github](https://github.com/quantum5/win2xcur) page.
  
 
 > [!NOTE]
@@ -32,6 +32,38 @@ Cloning
 ```sh
 git clone https://github.com/PxRyzl/win2xcur-script
 ```
+
+### Win2xcur
+> [!NOTE]
+> **Because of the new update to win2xcur it cause problem such as not being able to just use the win2xcur available with the script.**
+> 
+> **I don't feel like trying to put some duct tape solution such as just syslinking shit and expecting it to hold up and not cause way more issues.**
+> 
+> **So another duct tape solution from now is that you need to install the win2xcur on your own.**
+> 
+> **There's 2 ways to install it, either by using pipx or the AUR.**
+
+#### Pipx
+
+You would need to download **python-pipx** using your packages manager.
+
+```sh
+pipx install win2xcur
+```
+Check ~/.local/share/pipx/venvs/ if win2xcur is over there then you are doing good.
+Then head over to ~/.local/bin/ and just copy the win2xcur into the win2xcur-script/ directory
+
+#### AUR
+
+As of now there seems to be a problem with AUR where it doesn't explicitly state to install these dependencies and just decide to exit by itself. So you had to install it yourself.
+
+```sh
+pacman -S python-installer python-build
+```
+And it's as simple as that, the binary would be installed globally into the system so you wouldn't need to do any tinkering like copy pasting.
+
+
+
 ## Usage
 
 <div align="center">
@@ -77,6 +109,7 @@ Cursor file such as `Location/Pin` or `Person/People` won't be needed
 
 ### Using Fish instead of Bash
 Fish user may have problem using the script so it's adviced to use bash instead.
+
 (You may need to delete and clone the script again)
 
 ### .cur file didn't get converted
