@@ -15,6 +15,7 @@
 				packages = with pkgs; [
 					win2xcur
 					jq
+					zenity
 				];
 			};
 		});
