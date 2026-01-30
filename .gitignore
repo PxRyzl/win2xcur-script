@@ -1,0 +1,6 @@
+# Ignore everything beginning with a . expect .gitignore
+.*
+!/.gitignore
+
+input/
+output/
