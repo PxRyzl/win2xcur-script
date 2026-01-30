@@ -17,7 +17,7 @@ for name in "${dirs[@]}"; do
 done
 
 # Create file for inside test-cursor
-cat <<EOF >> $HOME/win2xcur-script/test-cursor/index.theme
+cat <<EOF >> $HOME/win2xcur-script/output/test-cursor/index.theme
 [Icon Theme]
 Name=test-cursor
 Comment=this is for testing
