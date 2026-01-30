@@ -12,8 +12,9 @@
 	{
 		devShells = forEachSystem (pkgs: {
 			default = pkgs.mkShell {
-				packages = [
-					pkgs.win2xcur
+				packages = with pkgs; [
+					win2xcur
+					jq
 				];
 			};
 		});
