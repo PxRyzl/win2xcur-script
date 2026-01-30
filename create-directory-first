@@ -18,14 +18,5 @@ done
 # Create important input directory
 mkdir $HOME/win2xcur-script/autosort
 
-# Give permission to each script
-chmod_bsh=$HOME/win2xcur-script
-scrp=(
-	convert detail sorting start
-)
-for srp in "${scrp[@]}"; do
-	chmod +x "$chmod_bsh/${srp}"
-done
-
 # Remove this file once done
 rm $HOME/win2xcur-script/create-directory-first
