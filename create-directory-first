@@ -1,11 +1,13 @@
-#! /bin/bash
+#!/usr/bin/env bash
+
+SCRIPT_DIR=$( cd -- "$( dirname --  "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 # Create important directory
-mkdir  $HOME/win2xcur-script/.converting
-mkdir  $HOME/win2xcur-script/.process
-mkdir  $HOME/win2xcur-script/input
+mkdir  $SCRIPT_DIR/.converting
+mkdir  $SCRIPT_DIR/.process
+mkdir  $SCRIPT_DIR/input
 
-base_cur=$HOME/win2xcur-script/input
+base_cur=$SCRIPT_DIR/input
 indir=(
   Alternate Busy Cross Default Dgn1
   Dgn2 Hand Help Horizontal Link
@@ -16,10 +18,10 @@ for fil in "${indir[@]}"; do
 done
 
 # Create important input directory
-mkdir $HOME/win2xcur-script/autosort
+mkdir $SCRIPT_DIR/autosort
 
 # Give permission to each script
-chmod_bsh=$HOME/win2xcur-script
+chmod_bsh=$SCRIPT_DIR
 scrp=(
 	convert detail sorting start
 )
@@ -28,4 +30,4 @@ for srp in "${scrp[@]}"; do
 done
 
 # Remove this file once done
-rm $HOME/win2xcur-script/create-directory-first
+# rm $SCRIPT_DIR/create-directory-first

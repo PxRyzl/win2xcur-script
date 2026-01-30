@@ -1,7 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+SCRIPT_DIR=$( cd -- "$( dirname --  "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 # Initial directory
-original_dir="$HOME/win2xcur-script/test-cursor"
+original_dir="$SCRIPT_DIR/test-cursor"
 theme_file="$original_dir/index.theme"
 
 # Function to update index.theme with new values
@@ -29,7 +31,7 @@ rename_directory() {
     local name="$1"
     # Replace spaces with dashes
     safe_name="${name// /-}"
-    new_dir="$HOME/win2xcur-script/$safe_name"
+    new_dir="$SCRIPT_DIR/$safe_name"
 
     if [ "$original_dir" != "$new_dir" ]; then
         mv "$original_dir" "$new_dir"
