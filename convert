@@ -1,11 +1,13 @@
-#! /bin/bash
+#!/usr/bin/env bash
+
+SCRIPT_DIR=$( cd -- "$( dirname --  "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 # test-cursor directory
-mkdir -p $HOME/win2xcur-script/test-cursor/cursors
-touch $HOME/win2xcur-script/test-cursor/index.theme
+mkdir -p $SCRIPT_DIR/test-cursor/cursors
+touch $SCRIPT_DIR/test-cursor/index.theme
 
 # Create the .converting directory
-base_dir=$HOME/win2xcur-script/.converting
+base_dir=$SCRIPT_DIR/.converting
 dirs=(
   Alternate Busy Cross Default Dgn1
   Dgn2 Hand Help Horizontal Link
@@ -17,7 +19,7 @@ for name in "${dirs[@]}"; do
 done
 
 # Create file for inside test-cursor
-cat <<EOF >> $HOME/win2xcur-script/test-cursor/index.theme
+cat <<EOF >> $SCRIPT_DIR/test-cursor/index.theme
 [Icon Theme]
 Name=test-cursor
 Comment=this is for testing
@@ -26,7 +28,7 @@ EOF
 # Convert the cursor into xcursor
 #!/bin/bash
 
-BASE_DIR="$HOME/win2xcur-script"
+BASE_DIR="$SCRIPT_DIR"
 INPUT_DIR="$BASE_DIR/input"
 CONVERTING_DIR="$BASE_DIR/.converting"
 PROCESS_DIR="$BASE_DIR/.process"
@@ -84,8 +86,8 @@ done
 
 
 # Copy into the test-cursor file
-src_base=$HOME/win2xcur-script/.process
-dest_base=$HOME/win2xcur-script/test-cursor/cursors
+src_base=$SCRIPT_DIR/.process
+dest_base=$SCRIPT_DIR/test-cursor/cursors
 
 declare -A mappings=(
   [Alternate]="bottom_left_corner bottom_right_corner bottom_side down-arrow left-arrow left_side right-arrow right_side top_left_corner top_right_corner top_side up_arrow"
@@ -113,7 +115,7 @@ for category in "${!mappings[@]}"; do
 done
 
 # Remove file
-rm $HOME/win2xcur-script/.process/*
+rm $SCRIPT_DIR/.process/*
 
 input_dirs=(
   Alternate Busy Cross Default Dgn1 Dgn2 Hand Help
@@ -121,8 +123,8 @@ input_dirs=(
 )
 
 for dir in "${input_dirs[@]}"; do
-  rm -f $HOME/win2xcur-script/input/$dir/*
+  rm -f $SCRIPT_DIR/input/$dir/*
 done
 
-rm -rf $HOME/win2xcur-script/.converting/* $HOME/win2xcur-script/.process/*
-rm $HOME/win2xcur-script/autosort/*
+rm -rf $SCRIPT_DIR/.converting/* $SCRIPT_DIR/.process/*
+rm $SCRIPT_DIR/autosort/*
