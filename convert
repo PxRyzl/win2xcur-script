@@ -1,8 +1,8 @@
 #! /bin/bash
 
 # test-cursor directory
-mkdir -p $HOME/win2xcur-script/test-cursor/cursors
-touch $HOME/win2xcur-script/test-cursor/index.theme
+mkdir -p $HOME/win2xcur-script/output/test-cursor/cursors
+touch $HOME/win2xcur-script/output/test-cursor/index.theme
 
 # Create the .converting directory
 base_dir=$HOME/win2xcur-script/.converting
@@ -85,7 +85,7 @@ done
 
 # Copy into the test-cursor file
 src_base=$HOME/win2xcur-script/.process
-dest_base=$HOME/win2xcur-script/test-cursor/cursors
+dest_base=$HOME/win2xcur-script/output/test-cursor/cursors
 
 declare -A mappings=(
   [Alternate]="bottom_left_corner bottom_right_corner bottom_side down-arrow left-arrow left_side right-arrow right_side top_left_corner top_right_corner top_side up_arrow"

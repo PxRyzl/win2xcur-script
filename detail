@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Initial directory
-original_dir="$HOME/win2xcur-script/test-cursor"
+original_dir="$HOME/win2xcur-script/output/test-cursor"
 theme_file="$original_dir/index.theme"
 
 # Function to update index.theme with new values
@@ -29,7 +29,7 @@ rename_directory() {
     local name="$1"
     # Replace spaces with dashes
     safe_name="${name// /-}"
-    new_dir="$HOME/win2xcur-script/$safe_name"
+    new_dir="$HOME/win2xcur-script/output/$safe_name"
 
     if [ "$original_dir" != "$new_dir" ]; then
         mv "$original_dir" "$new_dir"
