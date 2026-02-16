@@ -20,14 +20,5 @@ done
 # Create important input directory
 mkdir $SCRIPT_DIR/autosort
 
-# Give permission to each script
-chmod_bsh=$SCRIPT_DIR
-scrp=(
-	convert detail sorting start
-)
-for srp in "${scrp[@]}"; do
-	chmod +x "$chmod_bsh/${srp}"
-done
-
 # Remove this file once done
 # rm $SCRIPT_DIR/create-directory-first
