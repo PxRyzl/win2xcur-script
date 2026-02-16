@@ -21,4 +21,4 @@ done
 mkdir $SCRIPT_DIR/autosort
 
 # Remove this file once done
-# rm $SCRIPT_DIR/create-directory-first
+rm $SCRIPT_DIR/create-directory-first
