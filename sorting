@@ -1,8 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+SCRIPT_DIR=$( cd -- "$( dirname --  "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 # Source and destination directories
-SOURCE_DIR="$HOME/win2xcur-script/autosort"
-DEST_BASE_DIR="$HOME/win2xcur-script/input"
+SOURCE_DIR="$SCRIPT_DIR/autosort"
+DEST_BASE_DIR="$SCRIPT_DIR/input"
 
 # Use jq to safely encode the directory names into a JSON array
 DIRS_JSON=$(find "$DEST_BASE_DIR" -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | jq -R . | jq -s .)
