@@ -3,8 +3,8 @@
 SCRIPT_DIR=$( cd -- "$( dirname --  "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 # test-cursor directory
-mkdir -p $SCRIPT_DIR/test-cursor/cursors
-touch $SCRIPT_DIR/test-cursor/index.theme
+mkdir -p $SCRIPT_DIR/output/test-cursor/cursors
+touch $SCRIPT_DIR/output/test-cursor/index.theme
 
 # Create the .converting directory
 base_dir=$SCRIPT_DIR/.converting
@@ -19,7 +19,7 @@ for name in "${dirs[@]}"; do
 done
 
 # Create file for inside test-cursor
-cat <<EOF >> $SCRIPT_DIR/test-cursor/index.theme
+cat <<EOF >> $SCRIPT_DIR/output/test-cursor/index.theme
 [Icon Theme]
 Name=test-cursor
 Comment=this is for testing
@@ -87,7 +87,7 @@ done
 
 # Copy into the test-cursor file
 src_base=$SCRIPT_DIR/.process
-dest_base=$SCRIPT_DIR/test-cursor/cursors
+dest_base=$SCRIPT_DIR/output/test-cursor/cursors
 
 declare -A mappings=(
   [Alternate]="bottom_left_corner bottom_right_corner bottom_side down-arrow left-arrow left_side right-arrow right_side top_left_corner top_right_corner top_side up_arrow"
