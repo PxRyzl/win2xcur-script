@@ -6,6 +6,10 @@ A Simple bash script to convert windows cursor such as .cur and .ani into xcurso
 
 </div>
 
+>[!WARNING]
+> **[ABANDONED]**
+> **I will no longer be updating this scripts because I have created a gui application version of this. Please instead go to [PxRyzl/Cobalt](https://github.com/PxRyzl/Cobalt) instead.**
+
 [Youtube](https://youtu.be/tatl1YSWwkM) Tutorial on how to use the script.
 
 Feel free to download some of the cursors that has been converted on my [pling](https://www.pling.com/u/pxryzl/) account
