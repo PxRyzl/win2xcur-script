@@ -15,6 +15,8 @@ A Simple bash script to convert windows cursor such as .cur and .ani into xcurso
 Feel free to download some of the cursors that has been converted on my [pling](https://www.pling.com/u/pxryzl/) account
 
 Win2xcur creator [Github](https://github.com/quantum5/win2xcur) page.
+
+Support me on [Ko-fi](https://ko-fi.com/pxryzl)
  
 
 > [!NOTE]
